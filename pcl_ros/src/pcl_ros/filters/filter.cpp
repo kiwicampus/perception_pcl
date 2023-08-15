@@ -150,7 +150,7 @@ pcl_ros::Filter::subscribe()
     // Subscribe in an old fashion to input only (no filters)
     sub_input_ =
       this->create_subscription<PointCloud2>(
-      "input", rclcpp::SensorDataQoS().keep_last(max_queue_size_),
+      "input", rclcpp::SensorDataQoS().keep_last(max_queue_size_).durability_volatile().reliable(),
       callback);
   }
 }
